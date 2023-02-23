@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6eee50d-8335-4608-8dcf-771a4c680ce4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/__init__.py" afterDir="false" />
@@ -147,7 +144,7 @@
       <workItem from="1677068646267" duration="44000" />
       <workItem from="1677068740406" duration="1559000" />
       <workItem from="1677131952021" duration="23000" />
-      <workItem from="1677136159416" duration="8710000" />
+      <workItem from="1677136159416" duration="9029000" />
     </task>
     <servers />
   </component>
