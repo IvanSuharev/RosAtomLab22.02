@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:alpine3.16
+    ports:
+      - "${POSTGRES_PORT:-5432}:${POSTGRES_PORT:-5432}"
+    volumes:
+      - "${POSTGRES_DATA:-./data/postgres/data}:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-postgres}"
+      POSTGRES_USER: "${POSTGRES_USER:-postgres}"
+      POSTGRES_DB: "${POSTGRES_DB:-ros_atom}"
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U postgres -d ${POSTGRES_DB} -p ${POSTGRES_PORT}'" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    command: "-p ${POSTGRES_PORT:-5432}"
+    restart: always
+    networks:
+      - backend_db_network
+
+  backend:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "${PORT:-4000}:8000"
+    environment:
+      PORT: ${PORT}
+      NAME: ${NAME}
+    restart: always
+    networks:
+      - backend_db_network
+    depends_on:
+      db:
+        condition: service_healthy
+
+networks:
+  backend_db_network:
+    driver: bridge

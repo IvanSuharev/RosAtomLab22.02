@@ -1,1 +1,1 @@
-from .db import Base, engine
+from .db import Base, engine, DATABASE_URL
