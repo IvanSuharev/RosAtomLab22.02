@@ -20,8 +20,10 @@ COPY requirements.txt "/app"
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE ${PORT}
 
+COPY . .
+
 COPY entrypoint.sh "/app"
 RUN ["chmod", "+x", "/app/entrypoint.sh"]
 ENTRYPOINT ["/app/entrypoint.sh"]
 
-CMD uvicorn main:app --port $PORT
+CMD uvicorn main:app --port $PORT --reload

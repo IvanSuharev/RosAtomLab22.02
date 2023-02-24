@@ -1,1 +1,1 @@
-#COPY ../../Downloads "/app" build: ../../Downloads
+from .service import UserService, CarService, ManufacturerService
