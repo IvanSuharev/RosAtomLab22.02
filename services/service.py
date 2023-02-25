@@ -14,7 +14,7 @@ class CarService:
 
     @staticmethod
     def update(db: Session, obj: schemas.CarUpdate, obj_id: int) -> models.Car:
-        db_obj = db.query(models.Car).get(obj_id)
+        db_obj = db.query(models.Car).get(obj_id) # noqa
         if not db_obj:
             raise ItemNotFound
 
@@ -53,7 +53,7 @@ class UserService:
 
     @staticmethod
     def update(db: Session, obj: schemas.UserUpdate, obj_id: int) -> models.User:
-        db_obj = db.query(models.User).get(obj_id)
+        db_obj = db.query(models.User).get(obj_id) # noqa
         if not db_obj:
             raise ItemNotFound
 
@@ -94,7 +94,7 @@ class ManufacturerService:
     def update(
         db: Session, obj: schemas.ManufacturerUpdate, obj_id: int
     ) -> models.Manufacturer:
-        db_obj = db.query(models.Manufacturer).get(obj_id)
+        db_obj = db.query(models.Manufacturer).get(obj_id) # noqa
         if not db_obj:
             raise ItemNotFound
 
