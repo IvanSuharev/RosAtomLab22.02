@@ -1,14 +1,12 @@
 from datetime import datetime
 from datetime import date
 from pydantic import BaseModel, EmailStr
-from models import GenderEnum
 from typing import Optional
 
 
 class BaseUser(BaseModel):
     name: str
     email: EmailStr
-    gender: GenderEnum
     birth_date: date
 
 
@@ -19,7 +17,6 @@ class UserCreate(BaseUser):
 class UserUpdate(BaseModel):
     name: Optional[str]
     email: Optional[EmailStr]
-    gender: Optional[GenderEnum]
     birth_date: Optional[date]
 
 
